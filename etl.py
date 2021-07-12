@@ -8,7 +8,8 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
-    """ Process a song file and load to PostgresDB"""
+    """Receives a cursor and a filepath.
+    Process the song files and load them in PostgresDB"""
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -24,7 +25,8 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    """ Process a log file and load to PostgresDB"""
+    """Receives a cursor and a filepath.
+    Process the log files and load them in PostgresDB"""
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -64,7 +66,8 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    """ Process every data file in a diretory using a given function"""
+    """Receives a cursor, a Database connection, a filepath and a function.
+    Process all the files in the filepath with the given func and save them in DB."""
 
     # get all files matching extension from directory
     all_files = []
